@@ -22,6 +22,7 @@ class bold(baseElement):
     def __init__(self):
         self.marker = "**"
         self.html = "<b>{}</b>"
+
         self.isNewline = False
         self.isIntext = True
 
@@ -31,8 +32,30 @@ class italic(baseElement):
     def __init__(self):
         self.marker = "*"
         self.html = "<i>{}</i>"
+
         self.isNewline = False
         self.isIntext = True
+
+
+class accessElements:
+    """This class accesses elemet classes through objects"""
+    def __init__(self, elementName='baseElement'):
+        if (elementName == 'baseElement'
+            or elementName == 'paragraph'
+                or elementName) == 'p':
+            self.elementName = 'baseElement'
+            self.object = baseElement()
+
+        elif (elementName == 'bold'
+                or elementName) == 'b':
+            self.elementName = 'bold'
+            self.object = bold()
+
+        elif (elementName == 'italic'
+                or elementName) == 'i':
+            self.elementName = 'italic'
+            self.object = italic()
+
 
 if __name__ == "__main__":
     obj = bold()
